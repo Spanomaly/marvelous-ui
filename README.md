@@ -16,4 +16,6 @@ Start the React app:
     npm start
 
 
+The app should be running at http://localhost:8080/
+
 The backend for this app is in [this repo](https://github.com/Spanomaly/marvelous-be).
