@@ -1,4 +1,5 @@
 var Config = require('Config');
+import toastr from 'toastr';
 
 export function fetchItems() {
   return function(dispatch) {
@@ -6,7 +7,8 @@ export function fetchItems() {
       .then(response => response.json())
       .then(json => {
         dispatch({ type: "DATA_LOADED", payload: json });
-      });
+      })
+      .catch((err)=>toastr.warning(err));
   };
 }
 export function addItem(payload) {
@@ -21,7 +23,8 @@ export function addItem(payload) {
       .then(response => response.json())
       .then(json => {
         dispatch({ type: "ADD_ITEM", payload: json });
-      });
+      })
+      .catch(err=>toastr.warning(err));
   };
 }
 export function deleteItem(id) {
@@ -32,7 +35,8 @@ export function deleteItem(id) {
     .then(response => response.json())
     .then(json => {
       dispatch({ type: "DELETE_ITEM", payload: json });
-    });
+    })
+    .catch(err=>toastr.warning(err));
   };
 }
 export function searchFor(term) {
