@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather:300i&display=swap');
+@import 'toastr';
+
+$inputBorder: 4px solid white;
+@mixin appearance($value) {
+  -webkit-appearance:     $value;
+  -moz-appearance:        $value;
+  -ms-appearance:         $value;
+  -o-appearance:          $value;
+  appearance:             $value;
+}
+body {
+  margin: 0;
+  font-family: 'Helvetica', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Roboto', 'Oxygen', 'Ubuntu', 'Droid Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #79818F;
+  color: white;
+  font-size: 100%;
+}
+button {
+  cursor: pointer;
+}
+a {
+  color: #ddd;
+}
+#Intro {
+  max-width: 552px;
+  h1 {
+    font-size: 2.6em;
+    margin-bottom: 1rem;
+    font-family: 'Merriweather', serif;
+    font-style: italic;
+  }
+  p {
+   color: #8FFFEE;
+   font-size: 1.4375em;
+   text-align: justify;
+  }
+}
+.App {
+  max-width: 940px;
+  width: 90%;
+  margin: 4rem auto;
+  padding-bottom: 40px;
+}
+.FormPane {
+  position: relative;
+  width: 100%;
+  margin-right: 0;
+}
+
+.ItemForm {
+  button {
+    font-size: 1.25rem;
+    cursor: pointer;
+    @include appearance(none);
+    padding: 1.31rem 0;
+    text-align: center;
+    width: 100%;
+    display: block;
+    border: $inputBorder;
+    outline: none;
+    background: none;
+    color: white;
+    transition: all 0.3s;
+    margin: 1.25em 0;
+    &:hover {
+      background-color: white;
+      color: #555;
+    }
+  }
+}
+#SectionTitle{
+  padding: 13.5px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  background: rgb(194,203,213);
+  background: linear-gradient(180deg, rgba(194,203,213,1) 0%, rgba(140,154,171,1) 65%, rgba(129,143,161,1) 100%);
+}
+input {
+  @include appearance(none);
+  font-size: 1rem;
+  padding: 23.5px 0.9em;  width: 100%;
+  color: white;
+  box-sizing : border-box;
+  display: block;
+  border: $inputBorder;
+  background-color: rgba(255, 255, 255, 0.25);
+  &::placeholder { color: #D4D6DB; }
+  margin-bottom: 20px;
+}
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.Lists {
+  height: 100%;
+  float: left;
+  width: 100%;
+  .ListWrap {
+    width: 100%;
+  }
+  .InnerLists {
+    height: auto;
+    border: 8.5px solid white;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    list-style: none;
+    position: relative;
+    font-size: 23.3px;
+    padding: 24px 54px 24px 26px;
+    background-color: rgba(255,255,255,0.9);
+    color: #79818F;
+    &:nth-child(even) {
+      background-color: rgba(255,255,255,0.5);
+      color: #ffffff;
+      button {
+        background-image: url("../public/close-white.svg");
+      }
+    }
+    button {
+      @include appearance(none);
+      border: none;
+      outline: none;
+      background: transparent;
+      padding: 0;
+      margin: 0;
+      position: absolute;
+      right: 17px;
+      top: 50%;
+      height: 32px;
+      width: 32px;
+      transform: translateY(-50%);
+      background-image: url("../public/close.svg");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+  #Col1Wrap {
+    border-right: 8px solid white;
+    left: 0;
+  }
+  #Col2Wrap { right: 0; }
+}
+.List {
+  h3 {
+    margin: 0;
+    font-size: 23.3px;
+  }
+  .ListTitle {
+    padding: 19.5px 0;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    text-align: center;
+    background: rgb(183,199,219);
+    background: linear-gradient(180deg, rgba(183,199,219,1) 0%, rgba(72,84,104,1) 100%);
+  }
+}
+.Search {
+  background-image: url("../public/search-icon.png");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 12px 0.9rem;
+}
+.SearchLabel {
+
+}
+.MainApp {
+  height: 535px;
+  margin-bottom: 20px;
+}
+@media screen and (min-width: 500px) {
+  .Lists {
+    height: 100%;
+    .InnerLists {
+      height: calc(100% - 8.5px * 2);
+      border: 8.5px solid white;
+      display: flex;
+    }
+    .ListWrap {
+      width: 45%;
+      width: calc(50% - 4px);
+      overflow-y: scroll;
+    }
+    #Col1Wrap {
+      border-right: 8px solid white;
+      left: 0;
+    }
+    #Col2Wrap { right: 0; }
+  }
+}
+@media screen and (min-width: 820px) {
+  #Intro h1 {
+    font-size: 4.525em;
+    margin-bottom: 1.875rem;
+  }
+  .FormPane {
+    height: 535px;
+    float: left;
+    width:  29.8%;
+    margin-right: 1.276%;
+  }
+  .SearchLabel {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-bottom: 0;
+  }
+  .Search {
+    margin-bottom: 0px;
+  }
+  .Lists {
+    width: 68.724%;
+
+    float: left;
+  }
+}
+.LogView {
+  ul{
+    margin-bottom: 30px;
+    padding: 0;
+    list-style: none;
+    li {
+      padding: 4px 0;
+      font-family: "Lucida Console", Monaco, "Courier New", Courier, monospace;
+    }
+  }
+}
+.DropdownIndicator {
+  height: 6px;
+  width: 14px;
+  background-image: url("../public/drop-arrow.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  &.menuIsOpen {
+    background-image: url("../public/up-arrow.svg");
+  }
+}
